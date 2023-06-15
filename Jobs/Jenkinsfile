@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                sh cd Jobs/docker
+                sh 'cd Jobs/docker'
                 sh 'docker-compose build --no-cache'
                 sh 'docker-compose up -d
                 sh 'docker ps'
