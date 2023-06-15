@@ -1,14 +1,16 @@
 #!/bin/bash
 
 UID = $(shell id -u)
-DOCKER_BE = store_backend_app
-DOCKER_NETWORK= jenkins_app
+DOCKER_BE = jenkins_app
+DOCKER_NETWORK= jenkins_network
 
 help: ## Show this help message
 	@echo 'usage: make [target]'
 	@echo
 	@echo 'targets:'
 	@egrep '^(.+)\:\ ##\ (.+)' ${MAKEFILE_LIST} | column -t -c 2 -s ':#'
+user :
+	@echo 'User: ' ${UID}
 
 start: ## Start the containers
 	docker network create  $(DOCKER_NETWORK) || true

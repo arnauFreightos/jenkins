@@ -11,8 +11,10 @@ services:
     container_name: jenkins_app
     build:
       context: docker/jenkins
+      args:
+        UID: $U_ID
     ports:
-      - 8080:8080
+      - 8090:8080
       - 50000:50000
     volumes:
       - "./jenkins_home:/var/jenkins_home"
